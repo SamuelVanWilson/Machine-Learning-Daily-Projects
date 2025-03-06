@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Analisis Sentimen</h1>
+        <p>type in english (<i>ketik dalam bahasa inggris</i>)</p>
+        <form method="POST" action="/predict">
+            <textarea name="text" rows="4" placeholder="Masukkan teks...">{{ text if text }}</textarea>
+            <button type="submit">Prediksi</button>
+        </form>
+        {% if sentiment %}
+        <div class="result">
+            <h3>Hasil: {{ sentiment }}</h3>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
