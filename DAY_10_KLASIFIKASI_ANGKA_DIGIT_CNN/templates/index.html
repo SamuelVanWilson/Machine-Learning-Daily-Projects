@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MNIST Classifier</title>
+    <style>
+        body { font-family: Arial; text-align: center; }
+        img { max-width: 200px; margin: 20px; }
+        .result { color: blue; font-size: 24px; }
+    </style>
+</head>
+<body>
+    <h1>Klasifikasi Angka MNIST</h1>
+    <form method="post" enctype="multipart/form-data" action="/predict">
+        <input type="file" name="file" accept="image/*">
+        <button type="submit">Prediksi</button>
+    </form>
+    {% if prediction is defined %}
+        <div class="result">
+            Prediksi: {{ prediction }}
+        </div>
+        <img src="/{{ image_path }}" alt="Gambar yang diupload">
+    {% endif %}
+</body>
+</html>
